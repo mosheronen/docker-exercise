@@ -3,11 +3,12 @@ FROM jenkins/jenkins:lts
 ENV JAVA_OPTS -Djenkins.install.runSetupWizard=false
 ENV JENKINS_ADMIN_ID admin
 ENV JENKINS_ADMIN_PASSWORD password
-ENV CASC_JENKINS_CONFIG /var/jenkins_home/casc.yaml
+ENV CASC_JENKINS_CONFIG /var/jenkins_home/casc_configs/jenkins.yaml
 
 COPY plugins.txt /usr/share/jenkins/ref
 RUN /usr/local/bin/install-plugins.sh < /usr/share/jenkins/ref/plugins.txt
-COPY casc.yaml /var/jenkins_home/casc.yaml
+RUN mkdir -p /var/jenkins_home/casc_configs
+COPY casc.yaml /var/jenkins_home/casc_configs/jenkins.yaml
 
 USER root
 
