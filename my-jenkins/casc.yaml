@@ -1,4 +1,10 @@
 jenkins:
+  nodes:
+    - permanent:
+        labelString: "master"
+        mode: NORMAL
+        name: "Built-In Node"
+        numExecutors: 4
   authorizationStrategy:
     globalMatrix:
       permissions:
@@ -81,14 +87,77 @@ tool:
       name: "Default"
 jobs:
   - script: >
-      multibranchPipelineJob('pipeline-as-code') {
-          branchSources {
-              git {
-                  id = 'pipeline-as-code'
-                  remote('https://github.com/igorstojanovski/jenkins-pipeline-as-code')
+      pipelineJob('build-my-app') {
+        definition {
+          cpsScmFlowDefinition {
+            scm {
+              gitSCM {
+                userRemoteConfigs {
+                  userRemoteConfig {
+                    url('https://github.com/mosheronen/docker-exercise.git')
+                    name('docker-exercise')
+                    refspec('')
+                    credentialsId('github')
+                  }
+                }
+                branches {
+                  branchSpec {
+                    name('*/main')
+                  }
+                }
+                browser {
+                  githubWeb {
+                    repoUrl('https://github.com/mosheronen/docker-exercise.git')
+                  }
+                }
+                gitTool('git')
               }
+              scriptPath('jenkins-jobs/build-my-app/Jenkinsfile')
+            }
           }
-          triggers {
-            periodic(1)
-          }
+        }
       }
+  - script: >
+      pipelineJob('run-my-app') {
+        definition {
+          cpsScmFlowDefinition {
+            scm {
+              gitSCM {
+                userRemoteConfigs {
+                  userRemoteConfig {
+                    url('https://github.com/mosheronen/docker-exercise.git')
+                    name('docker-exercise')
+                    refspec('')
+                    credentialsId('github')
+                  }
+                }
+                branches {
+                  branchSpec {
+                    name('*/main')
+                  }
+                }
+                browser {
+                  githubWeb {
+                    repoUrl('https://github.com/mosheronen/docker-exercise.git')
+                  }
+                }
+                gitTool('git')
+              }
+              scriptPath('jenkins-jobs/run-my-app/Jenkinsfile')
+            }
+          }
+        }
+      }
+credentials:
+  system:
+    domainCredentials:
+      - credentials:
+          - usernamePassword:
+              scope: GLOBAL
+              id: "github"
+              username: "mosheronen"
+              password: "\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"
+              description: "Username/Password Credentials for mronen git hub"
+
+
+
