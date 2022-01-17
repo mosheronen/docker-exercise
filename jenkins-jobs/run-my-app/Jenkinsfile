@@ -45,7 +45,6 @@ pipeline
 						script
 						{
 							ansiblePlaybook become: true, installation: 'Ansible', playbook: 'my-app/my-app-playbook.yaml'
-							}
 						}
 					}
 				}
