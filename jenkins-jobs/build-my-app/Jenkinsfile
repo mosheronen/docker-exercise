@@ -62,11 +62,11 @@ pipeline
 							}
 						}
 					}
-				}*/
+				}
 			}
 		}
 	}
-	/*post
+	post
 	{
 		always
 		{
@@ -84,7 +84,7 @@ pipeline
 				deleteDir()
 			}
 		}
-	}*/
+	}
 }
 
 
