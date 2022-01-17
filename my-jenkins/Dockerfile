@@ -51,11 +51,10 @@ RUN mkdir -p /data/test && \
 
 RUN python3 -m pip install $pip_packages
 
-# RUN adduser --shell /bin/bash --geos "" ansible
 RUN useradd -rm -d /home/ansible -m -p ansible -s /bin/bash ansible \
-	&& echo "ansible:pass123" | chpassed \
-	&& echo "ansible  ALL=(ALL)  NOPASSWD: ALL" >> /etc/sudoers \
-	&& chmod 755 /home/ansible
+    && echo "ansible:pass123" | chpassed \
+    && echo "ansible  ALL=(ALL)  NOPASSWD: ALL" >> /etc/sudoers \
+    && chmod 755 /home/ansible
 RUN usermod -aG sudo ansible
 
 RUN systemctl enable ssh
@@ -63,16 +62,13 @@ RUN service ssh start
 
 RUN ssh-keygen -t rsa -f ~/.ssh/id_rsa -q -N ""
 RUN mkdir -p /home/ansible/.ssh \
-	&& cp ~/.ssh/id_rsa.pub /home/ansible/.ssh/authorized_keys \
-	&& chown -R ansible:ansible /home/ansible/.ssh
+    && cp ~/.ssh/id_rsa.pub /home/ansible/.ssh/authorized_keys \
+    && chown -R ansible:ansible /home/ansible/.ssh
 
 USER ansible
 
 # Install Ansible inventory file
 RUN mkdir -p /etc/ansible
 RUN echo "[local]\nlocalhost ansible_connection=local" > /etc/ansible/hosts
-
-# Make sure systemd doesn't start agettys on tty[1-6]
-RUN rm -f /lib/systemd/system/multi-user.target.wants/getty.target
 
 USER jenkins
