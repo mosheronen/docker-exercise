@@ -45,16 +45,16 @@ RUN curl -L "https://github.com/docker/compose/releases/download/1.26.2/docker-c
 RUN chmod +x /usr/local/bin/docker-compose
 RUN ln -s /usr/local/bin/docker-compose /usr/bin/docker-compose
 
-RUN mkdir -p /data/test && \
-    chown -R jenkins:jenkins /data/test && \
-    chmod -R 777 /data/test
+RUN mkdir -p /data/test
+RUN chown -R jenkins:jenkins /data/test
+RUN chmod -R 777 /data/test
 
 RUN python3 -m pip install $pip_packages
 
-RUN useradd -rm -d /home/ansible -m -p ansible -s /bin/bash ansible \
-    && echo "ansible:pass123" | chpassed \
-    && echo "ansible  ALL=(ALL)  NOPASSWD: ALL" >> /etc/sudoers \
-    && chmod 755 /home/ansible
+RUN useradd -rm -d /home/ansible -m -p ansible -s /bin/bash ansible
+RUN echo "ansible:pass123" | chpasswd
+RUN echo "ansible  ALL=(ALL)  NOPASSWD: ALL" >> /etc/sudoers
+RUN chmod 755 /home/ansible
 RUN usermod -aG sudo ansible
 
 RUN systemctl enable ssh
