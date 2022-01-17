@@ -5,12 +5,12 @@ ENV JENKINS_ADMIN_ID admin
 ENV JENKINS_ADMIN_PASSWORD password
 ENV CASC_JENKINS_CONFIG /var/jenkins_home/casc_configs/jenkins.yaml
 
+USER root
+
 COPY plugins.txt /usr/share/jenkins/ref
 RUN /usr/local/bin/install-plugins.sh < /usr/share/jenkins/ref/plugins.txt
 RUN mkdir -p /var/jenkins_home/casc_configs
 COPY casc.yaml /var/jenkins_home/casc_configs/jenkins.yaml
-
-USER root
 
 ENV pip_packages "ansible cryptography"
 
@@ -18,6 +18,7 @@ RUN apt-get update && \
     apt-get -y install sudo \
     systemd \
     systemd-sysv \
+    nano \
     build-essential \
     libffi-dev \
     libssl-dev \
