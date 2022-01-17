@@ -52,7 +52,7 @@ RUN chmod -R 777 /data/test
 RUN python3 -m pip install $pip_packages
 
 RUN useradd -rm -d /home/ansible -m -p ansible -s /bin/bash ansible
-RUN echo "ansible:pass123" | chpasswd
+RUN echo "ansible:Pass@123" | chpasswd
 RUN echo "ansible  ALL=(ALL)  NOPASSWD: ALL" >> /etc/sudoers
 RUN chmod 755 /home/ansible
 RUN usermod -aG sudo ansible
@@ -75,3 +75,7 @@ USER ansible
 RUN echo "[local]\nlocalhost ansible_connection=local" > /etc/ansible/hosts
 
 USER jenkins
+
+COPY plugins.txt /usr/share/jenkins/ref/plugins.txt
+RUN /usr/local/bin/install-plugins.sh < /usr/share/jenkins/ref/plugins.txt
+

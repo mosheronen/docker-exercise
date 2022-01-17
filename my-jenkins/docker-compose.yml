@@ -15,4 +15,4 @@ services:
       - /data/test:/data/test
     restart: unless-stopped
     environment:
-      - "JAVA_OPTS=-Xmx3g -Xms2G"
+      - "JAVA_OPTS=-Xmx3g -Xms2G -Djenkins.install.runSetupWizard=false"
