@@ -38,27 +38,13 @@ pipeline
 						}
 					}
 				}
-				stage('Build my-app')
+				stage('Run my-app')
 				{
 					steps
 					{
 						script
 						{
-							image_name = "my-app-${env.BUILD_NUMBER}"
-							command = "docker-compose build"
-							dir("${WORKSPACE}/my-app")
-							{
-								echo "Command is: ${command}"
-								res = run_command(command)
-								output = res["stdout"]
-								exit_code = res["exitCode"]
-								echo "${command} output is: ${output}"
-								echo "${command} exit code is: ${exit_code}"
-								if (exit_code != 0)
-								{
-									message = "Failed to run command: ${command}. Exit Code: ${exit_code}"
-									throw new Exception(message)
-								}
+							ansiblePlaybook become: true, installation: 'Ansible', playbook: 'my-app/my-app-playbook.yaml'
 							}
 						}
 					}
