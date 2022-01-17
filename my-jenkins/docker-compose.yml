@@ -16,3 +16,6 @@ services:
     restart: unless-stopped
     environment:
       - "JAVA_OPTS=-Xmx3g -Xms2G -Djenkins.install.runSetupWizard=false"
+      - "JENKINS_ADMIN_ID=admin"
+      - "JENKINS_ADMIN_PASSWORD=password"
+      - "CASC_JENKINS_CONFIG /var/jenkins_home/casc.yaml"
