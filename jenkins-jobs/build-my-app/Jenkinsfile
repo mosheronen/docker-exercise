@@ -38,106 +38,6 @@ pipeline
 						}
 					}
 				}
-				/*stage('Create Dockerfile')
-				{
-					steps
-					{
-						script
-						{
-							dir("${WORKSPACE}")
-							{
-								writeFile(file: "Dockerfile", text: """###############################################################
-# Dockerfile for creating Image with Paython and my-script.py #
-###############################################################
-FROM python:3
-WORKDIR /app
-VOLUME /app
-COPY my-app.py .
-CMD exec /bin/bash -c \"python ./my-app.py; trap : TERM INT; sleep infinity & wait\"
-""")
-							}
-						}
-					}
-				}
-				stage('Create docker-compose.yml')
-				{
-					steps
-					{
-						script
-						{
-							dir("${WORKSPACE}")
-							{
-								writeFile(file: "docker-compose.yml", text: """version: '3.8'
-services:
-  app:
-    image: my-app:latest
-    build:
-      context: ./
-    privileged: true
-    user: root
-    container_name: my-app
-    restart: unless-stopped
-    volumes:
-      - volume_on_disk:/app
-volumes:
-  volume_on_disk:
-    driver: local
-    driver_opts:
-      type: "none"
-      o: "bind"
-      device: \"/data/test\"
-""")
-							}
-						}
-					}
-				}
-				stage('Create my-app.py')
-				{
-					steps
-					{
-						script
-						{
-							dir("${WORKSPACE}")
-							{
-								writeFile(file: "my-app.py", text: """import os
-import sys
-import traceback
-
-
-def get_parent_script_dir_path():
-    # Get the parent directory path of the running script
-    path = os.path.dirname(os.path.abspath(__file__))
-    return path
-
-
-def main():
-    try:
-        test_file = 'test.txt'
-        parent_script_dir_path = get_parent_script_dir_path()
-        print(f\"parent_script_dir_path={parent_script_dir_path}\")
-
-        # Set the "test.txt" file path to be reside next to this script
-        test_file_path = os.path.join(parent_script_dir_path, test_file)
-        print(f\"test_file_path={test_file_path}\")
-
-        with open(test_file_path, 'w') as f:
-            f.write(\"Hello World\")
-    except Exception as e:
-        print(f\"program failed with error: {e}\")
-        tb = traceback.format_exc()
-        print(f\"Stack Trace: {tb}\")
-        return 1
-    return 0
-
-
-if __name__ == '__main__':
-    rc = main()
-    sys.exit(rc)
-""")
-							}
-						}
-					}
-				}
 				stage('Build my-app')
 				{
 					steps
@@ -146,7 +46,7 @@ if __name__ == '__main__':
 						{
 							image_name = "my-app-${env.BUILD_NUMBER}"
 							command = "docker-compose build"
-							dir("${WORKSPACE}")
+							dir("${WORKSPACE}/my-app")
 							{
 								echo "Command is: ${command}"
 								res = run_command(command)
