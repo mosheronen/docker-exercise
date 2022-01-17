@@ -48,7 +48,7 @@ pipeline
 							dir("${WORKSPACE}")
 							{
 								echo "Command is: ${command}"
-								host_ip = run_command(command)
+								res = run_command(command)
 								output = res["stdout"]
 								exit_code = res["exitCode"]
 								echo "${command} output is: ${output}"
