@@ -1,8 +1,17 @@
 FROM jenkins/jenkins:lts
 
 USER root
+
+ENV pip_packages "ansible cryptography"
+
 RUN apt-get update && \
     apt-get -y install sudo \
+    systemd \
+    systemd-sysv \
+    build-essential \
+    libffi-dev \
+    libssl-dev \
+    openssh-server \
     apt-utils \
     apt-transport-https \
     ca-certificates \
@@ -12,8 +21,14 @@ RUN apt-get update && \
     gnupg-agent \
     lsb-release \
     software-properties-common \
-    python3
+    python3 \
+    python3-dev \
+    python3-setuptools \
+    python3-wheel \
+    python3-apt \
     python3-pip
+
+RUN pip3 install --upgrade pip
 
 RUN curl -fsSL https://download.docker.com/linux/debian/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
 
@@ -34,6 +49,30 @@ RUN mkdir -p /data/test && \
     chown -R jenkins:jenkins /data/test && \
     chmod -R 777 /data/test
 
-RUN python3 -m pip install ansible
+RUN python3 -m pip install $pip_packages
+
+# RUN adduser --shell /bin/bash --geos "" ansible
+RUN useradd -rm -d /home/ansible -m -p ansible -s /bin/bash ansible \
+	&& echo "ansible:pass123" | chpassed \
+	&& echo "ansible  ALL=(ALL)  NOPASSWD: ALL" >> /etc/sudoers \
+	&& chmod 755 /home/ansible
+RUN usermod -aG sudo ansible
+
+RUN systemctl enable ssh
+RUN service ssh start
+
+RUN ssh-keygen -t rsa -f ~/.ssh/id_rsa -q -N ""
+RUN mkdir -p /home/ansible/.ssh \
+	&& cp ~/.ssh/id_rsa.pub /home/ansible/.ssh/authorized_keys \
+	&& chown -R ansible:ansible /home/ansible/.ssh
+
+USER ansible
+
+# Install Ansible inventory file
+RUN mkdir -p /etc/ansible
+RUN echo "[local]\nlocalhost ansible_connection=local" > /etc/ansible/hosts
+
+# Make sure systemd doesn't start agettys on tty[1-6]
+RUN rm -f /lib/systemd/system/multi-user.target.wants/getty.target
 
 USER jenkins
