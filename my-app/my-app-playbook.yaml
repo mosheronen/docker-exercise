@@ -14,7 +14,7 @@
   - name: Create Container
     docker_container:
       name: my-app
-      image: my-app:latest
+      image: my-app_app:latest
       state: started
       volumes:
       - volume_on_disk:/app
