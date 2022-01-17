@@ -65,10 +65,13 @@ RUN mkdir -p /home/ansible/.ssh \
     && cp ~/.ssh/id_rsa.pub /home/ansible/.ssh/authorized_keys \
     && chown -R ansible:ansible /home/ansible/.ssh
 
+# Install Ansible inventory file
+RUN mkdir -p /etc/ansible
+RUN chown -R ansible:ansible /etc/ansible
+
 USER ansible
 
 # Install Ansible inventory file
-RUN mkdir -p /etc/ansible
 RUN echo "[local]\nlocalhost ansible_connection=local" > /etc/ansible/hosts
 
 USER jenkins
