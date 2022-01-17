@@ -1,16 +1,16 @@
 ---
-- name: Create a volume with options
-  docker_volume:
-    name: volume_on_disk
-    driver: local
-    driver_options:
-      type: none
-      device: /data/test
-      o: bind
 - name: Run my-app docker container
-  hosts: localhost.localdomain
-  remote_user: root
+  hosts: 172.21.0.2
+  remote_user: ansible
   tasks:
+  - name: Create a volume with options
+    docker_volume:
+      name: volume_on_disk
+      driver: local
+      driver_options:
+        type: none
+        device: /data/test
+        o: bind
   - name: Create Container
     docker_container:
       name: my-app
