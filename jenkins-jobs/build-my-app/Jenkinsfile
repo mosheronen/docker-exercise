@@ -83,6 +83,18 @@ pipeline
 			{
 				deleteDir()
 			}
+			dir("/var/jenkins_home/workspace/${JOB_NAME}-${BUILD_NUMBER}")
+			{
+				deleteDir()
+			}
+			dir("/var/jenkins_home/workspace/${JOB_NAME}-${BUILD_NUMBER}@tmp")
+			{
+				deleteDir()
+			}
+			dir("/var/jenkins_home/workspace/${JOB_NAME}-${BUILD_NUMBER}@script")
+			{
+				deleteDir()
+			}
 		}
 	}
 }
