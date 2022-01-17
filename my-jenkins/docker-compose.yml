@@ -1,0 +1,18 @@
+version: '3.8'
+services:
+  jenkins:
+    build:
+      context: ./
+    privileged: true
+    user: root
+    ports:
+      - '8080:8080'
+      - '50000:50000'
+    container_name: my-jenkins
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - /home/jenkins/jenkins_home:/var/jenkins_home
+      - /data/test:/data/test
+    restart: unless-stopped
+    environment:
+      - "JAVA_OPTS=-Xmx3g -Xms2G"

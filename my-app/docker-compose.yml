@@ -1,0 +1,18 @@
+version: '3.8'
+services:
+  app:
+    build:
+      context: ./
+    privileged: true
+    user: root
+    container_name: my-app
+    restart: unless-stopped
+    volumes:
+      - volume_on_disk:/app
+volumes:
+  volume_on_disk:
+    driver: local
+    driver_opts:
+      type: "none"
+      o: "bind"
+      device: "/data/test"
