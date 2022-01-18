@@ -145,6 +145,7 @@ credentials:
               id: "mronen-github"
               username: "mosheronen"
               password: "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"
+              # Temporary token, will be expired within 7 days
               description: "Username/Password Credentials for mronen git hub"
 
 
