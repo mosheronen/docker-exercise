@@ -36,6 +36,7 @@ RUN apt-get update && \
     gnupg-agent \
     lsb-release \
     software-properties-common \
+    dos2unix \
     python3 \
     python3-dev \
     python3-setuptools \
@@ -81,6 +82,7 @@ RUN mkdir -p /home/ansible/.ssh \
 RUN mkdir -p /etc/ansible
 RUN chown -R ansible:ansible /etc/ansible
 
+RUN dos2unix /entrypoint.sh
 ENTRYPOINT ["/entrypoint.sh"]
 
 USER ansible
