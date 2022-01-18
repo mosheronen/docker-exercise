@@ -1,0 +1,262 @@
+Started by user admin
+Checking out git https://github.com/mosheronen/docker-exercise.git into /var/jenkins_home/workspace/build-my-app@script to read jenkins-jobs/build-my-app/Jenkinsfile
+Selected Git installation does not exist. Using Default
+Selected Git installation does not exist. Using Default
+The recommended git tool is: NONE
+using credential mronen-github
+Cloning the remote Git repository
+Cloning repository https://github.com/mosheronen/docker-exercise.git
+ > git init /var/jenkins_home/workspace/build-my-app@script # timeout=10
+Fetching upstream changes from https://github.com/mosheronen/docker-exercise.git
+ > git --version # timeout=10
+ > git --version # 'git version 2.30.2'
+using GIT_ASKPASS to set credentials Username/Password Credentials for mronen git hub
+ > git fetch --tags --force --progress -- https://github.com/mosheronen/docker-exercise.git +refs/heads/*:refs/remotes/docker-exercise/* # timeout=10
+ > git config remote.docker-exercise.url https://github.com/mosheronen/docker-exercise.git # timeout=10
+ > git config --add remote.docker-exercise.fetch +refs/heads/*:refs/remotes/docker-exercise/* # timeout=10
+Avoid second fetch
+ > git rev-parse refs/remotes/docker-exercise/main^{commit} # timeout=10
+Checking out Revision 386b49b79900263c894bee8266db2487c6efaf7f (refs/remotes/docker-exercise/main)
+ > git config core.sparsecheckout # timeout=10
+ > git checkout -f 386b49b79900263c894bee8266db2487c6efaf7f # timeout=10
+Commit message: "initial commit"
+First time build. Skipping changelog.
+[Pipeline] Start of Pipeline
+[Pipeline] node
+Running on Jenkins in /var/jenkins_home/workspace/build-my-app
+[Pipeline] {
+[Pipeline] stage
+[Pipeline] { (Declarative: Checkout SCM)
+[Pipeline] checkout
+Selected Git installation does not exist. Using Default
+Selected Git installation does not exist. Using Default
+The recommended git tool is: NONE
+using credential mronen-github
+Cloning the remote Git repository
+Cloning repository https://github.com/mosheronen/docker-exercise.git
+ > git init /var/jenkins_home/workspace/build-my-app # timeout=10
+Fetching upstream changes from https://github.com/mosheronen/docker-exercise.git
+ > git --version # timeout=10
+ > git --version # 'git version 2.30.2'
+using GIT_ASKPASS to set credentials Username/Password Credentials for mronen git hub
+ > git fetch --tags --force --progress -- https://github.com/mosheronen/docker-exercise.git +refs/heads/*:refs/remotes/docker-exercise/* # timeout=10
+ > git config remote.docker-exercise.url https://github.com/mosheronen/docker-exercise.git # timeout=10
+ > git config --add remote.docker-exercise.fetch +refs/heads/*:refs/remotes/docker-exercise/* # timeout=10
+Avoid second fetch
+ > git rev-parse refs/remotes/docker-exercise/main^{commit} # timeout=10
+Checking out Revision 386b49b79900263c894bee8266db2487c6efaf7f (refs/remotes/docker-exercise/main)
+ > git config core.sparsecheckout # timeout=10
+ > git checkout -f 386b49b79900263c894bee8266db2487c6efaf7f # timeout=10
+Commit message: "initial commit"
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] withEnv
+[Pipeline] {
+[Pipeline] timestamps
+[Pipeline] {
+[Pipeline] stage
+[Pipeline] { (Starting the build-my-app, job will run in a single workspace)
+[Pipeline] node
+[2022-01-18T13:03:21.356Z] Running on Jenkins in /var/jenkins_home/workspace/build-my-app@2
+[Pipeline] {
+[Pipeline] ws
+[2022-01-18T13:03:21.518Z] Running in /var/jenkins_home/workspace/build-my-app-1
+[Pipeline] {
+[Pipeline] checkout
+[2022-01-18T13:03:21.742Z] Selected Git installation does not exist. Using Default
+[2022-01-18T13:03:21.742Z] Selected Git installation does not exist. Using Default
+[2022-01-18T13:03:21.743Z] The recommended git tool is: NONE
+[2022-01-18T13:03:21.744Z] using credential mronen-github
+[2022-01-18T13:03:21.774Z] Cloning the remote Git repository
+[2022-01-18T13:03:21.775Z] Cloning repository https://github.com/mosheronen/docker-exercise.git
+[2022-01-18T13:03:21.775Z]  > git init /var/jenkins_home/workspace/build-my-app-1 # timeout=10
+[2022-01-18T13:03:21.856Z] Fetching upstream changes from https://github.com/mosheronen/docker-exercise.git
+[2022-01-18T13:03:21.856Z]  > git --version # timeout=10
+[2022-01-18T13:03:21.940Z]  > git --version # 'git version 2.30.2'
+[2022-01-18T13:03:21.940Z] using GIT_ASKPASS to set credentials Username/Password Credentials for mronen git hub
+[2022-01-18T13:03:21.942Z]  > git fetch --tags --force --progress -- https://github.com/mosheronen/docker-exercise.git +refs/heads/*:refs/remotes/docker-exercise/* # timeout=10
+[2022-01-18T13:03:23.889Z]  > git config remote.docker-exercise.url https://github.com/mosheronen/docker-exercise.git # timeout=10
+[2022-01-18T13:03:23.941Z]  > git config --add remote.docker-exercise.fetch +refs/heads/*:refs/remotes/docker-exercise/* # timeout=10
+[2022-01-18T13:03:23.978Z] Avoid second fetch
+[2022-01-18T13:03:23.980Z]  > git rev-parse refs/remotes/docker-exercise/main^{commit} # timeout=10
+[2022-01-18T13:03:24.017Z] Checking out Revision 386b49b79900263c894bee8266db2487c6efaf7f (refs/remotes/docker-exercise/main)
+[2022-01-18T13:03:24.017Z]  > git config core.sparsecheckout # timeout=10
+[2022-01-18T13:03:24.056Z]  > git checkout -f 386b49b79900263c894bee8266db2487c6efaf7f # timeout=10
+[2022-01-18T13:03:24.110Z] Commit message: "initial commit"
+[Pipeline] withEnv
+[Pipeline] {
+[Pipeline] stage
+[Pipeline] { (error)
+[Pipeline] script
+[Pipeline] {
+[Pipeline] checkout
+[2022-01-18T13:03:25.594Z] The recommended git tool is: NONE
+[2022-01-18T13:03:25.596Z] using credential mronen-github
+[2022-01-18T13:03:25.679Z]  > git rev-parse --resolve-git-dir /var/jenkins_home/workspace/build-my-app-1/.git # timeout=10
+[2022-01-18T13:03:25.795Z] Fetching changes from the remote Git repository
+[2022-01-18T13:03:25.795Z]  > git config remote.origin.url https://github.com/mosheronen/docker-exercise.git # timeout=10
+[2022-01-18T13:03:25.921Z] Cleaning workspace
+[2022-01-18T13:03:25.921Z]  > git rev-parse --verify HEAD # timeout=10
+[2022-01-18T13:03:26.004Z] Resetting working tree
+[2022-01-18T13:03:26.004Z]  > git reset --hard # timeout=10
+[2022-01-18T13:03:26.098Z]  > git clean -fdx # timeout=10
+[2022-01-18T13:03:26.176Z] Fetching upstream changes from https://github.com/mosheronen/docker-exercise.git
+[2022-01-18T13:03:26.176Z]  > git --version # timeout=10
+[2022-01-18T13:03:26.224Z]  > git --version # 'git version 2.30.2'
+[2022-01-18T13:03:26.225Z] using GIT_ASKPASS to set credentials Username/Password Credentials for mronen git hub
+[2022-01-18T13:03:26.227Z]  > git fetch --tags --force --progress -- https://github.com/mosheronen/docker-exercise.git +refs/heads/*:refs/remotes/origin/* # timeout=5
+[2022-01-18T13:03:27.516Z]  > git rev-parse origin/main^{commit} # timeout=10
+[2022-01-18T13:03:27.536Z] Checking out Revision 386b49b79900263c894bee8266db2487c6efaf7f (origin/main)
+[2022-01-18T13:03:27.537Z]  > git config core.sparsecheckout # timeout=10
+[2022-01-18T13:03:27.559Z]  > git checkout -f 386b49b79900263c894bee8266db2487c6efaf7f # timeout=5
+[2022-01-18T13:03:27.581Z]  > git branch -a -v --no-abbrev # timeout=10
+[2022-01-18T13:03:27.605Z]  > git checkout -b main 386b49b79900263c894bee8266db2487c6efaf7f # timeout=5
+[2022-01-18T13:03:27.640Z] Commit message: "initial commit"
+[2022-01-18T13:03:27.640Z] Cleaning workspace
+[2022-01-18T13:03:27.640Z]  > git rev-parse --verify HEAD # timeout=10
+[2022-01-18T13:03:27.665Z] Resetting working tree
+[2022-01-18T13:03:27.665Z]  > git reset --hard # timeout=10
+[2022-01-18T13:03:27.696Z]  > git clean -fdx # timeout=10
+[Pipeline] }
+[Pipeline] // script
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Build my-app)
+[Pipeline] script
+[Pipeline] {
+[Pipeline] dir
+[2022-01-18T13:03:28.881Z] Running in /var/jenkins_home/workspace/build-my-app-1/my-app
+[Pipeline] {
+[Pipeline] echo
+[2022-01-18T13:03:29.122Z] Command is: docker-compose build
+[Pipeline] echo
+[2022-01-18T13:03:29.299Z] [runCommand:command] docker-compose build
+[Pipeline] echo
+[2022-01-18T13:03:29.367Z] [runCommand:actual command] docker-compose build >> rc.1.out 2>&1
+[Pipeline] sh
+[2022-01-18T13:03:30.005Z] + docker-compose build
+[Pipeline] sh
+[2022-01-18T13:03:37.104Z] + cat rc.1.out
+[Pipeline] sh
+[2022-01-18T13:03:37.427Z] + rm -f rc.1.out
+[Pipeline] echo
+[2022-01-18T13:03:37.499Z] [runCommand:response] [exitCode:0, stdout:Building app
+[2022-01-18T13:03:37.499Z] Step 1/5 : FROM python:3
+[2022-01-18T13:03:37.499Z]  ---> a5d7930b60cc
+[2022-01-18T13:03:37.499Z] Step 2/5 : WORKDIR /app
+[2022-01-18T13:03:37.499Z]  ---> Running in 8548093cb82e
+[2022-01-18T13:03:37.499Z] Removing intermediate container 8548093cb82e
+[2022-01-18T13:03:37.499Z]  ---> 4fba946e6822
+[2022-01-18T13:03:37.499Z] Step 3/5 : VOLUME /app
+[2022-01-18T13:03:37.499Z]  ---> Running in c843d34c7c5c
+[2022-01-18T13:03:37.499Z] Removing intermediate container c843d34c7c5c
+[2022-01-18T13:03:37.499Z]  ---> cb7ddab0c7aa
+[2022-01-18T13:03:37.499Z] Step 4/5 : COPY my-app.py .
+[2022-01-18T13:03:37.499Z]  ---> 49fb0763445b
+[2022-01-18T13:03:37.499Z] Step 5/5 : CMD exec /bin/bash -c "python ./my-app.py; trap : TERM INT; sleep infinity & wait"
+[2022-01-18T13:03:37.499Z]  ---> Running in b198e96dbc96
+[2022-01-18T13:03:37.499Z] Removing intermediate container b198e96dbc96
+[2022-01-18T13:03:37.499Z]  ---> 5c55f15f1697
+[2022-01-18T13:03:37.500Z] 
+[2022-01-18T13:03:37.500Z] Successfully built 5c55f15f1697
+[2022-01-18T13:03:37.500Z] Successfully tagged my-app_app:latest
+[2022-01-18T13:03:37.500Z] ]
+[Pipeline] echo
+[2022-01-18T13:03:37.529Z] docker-compose build output is: Building app
+[2022-01-18T13:03:37.529Z] Step 1/5 : FROM python:3
+[2022-01-18T13:03:37.529Z]  ---> a5d7930b60cc
+[2022-01-18T13:03:37.529Z] Step 2/5 : WORKDIR /app
+[2022-01-18T13:03:37.529Z]  ---> Running in 8548093cb82e
+[2022-01-18T13:03:37.529Z] Removing intermediate container 8548093cb82e
+[2022-01-18T13:03:37.529Z]  ---> 4fba946e6822
+[2022-01-18T13:03:37.529Z] Step 3/5 : VOLUME /app
+[2022-01-18T13:03:37.529Z]  ---> Running in c843d34c7c5c
+[2022-01-18T13:03:37.529Z] Removing intermediate container c843d34c7c5c
+[2022-01-18T13:03:37.529Z]  ---> cb7ddab0c7aa
+[2022-01-18T13:03:37.529Z] Step 4/5 : COPY my-app.py .
+[2022-01-18T13:03:37.529Z]  ---> 49fb0763445b
+[2022-01-18T13:03:37.529Z] Step 5/5 : CMD exec /bin/bash -c "python ./my-app.py; trap : TERM INT; sleep infinity & wait"
+[2022-01-18T13:03:37.529Z]  ---> Running in b198e96dbc96
+[2022-01-18T13:03:37.529Z] Removing intermediate container b198e96dbc96
+[2022-01-18T13:03:37.529Z]  ---> 5c55f15f1697
+[2022-01-18T13:03:37.529Z] 
+[2022-01-18T13:03:37.529Z] Successfully built 5c55f15f1697
+[2022-01-18T13:03:37.529Z] Successfully tagged my-app_app:latest
+[2022-01-18T13:03:37.529Z] 
+[Pipeline] echo
+[2022-01-18T13:03:37.553Z] docker-compose build exit code is: 0
+[Pipeline] }
+[Pipeline] // dir
+[Pipeline] }
+[Pipeline] // script
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] }
+[Pipeline] // withEnv
+[Pipeline] }
+[Pipeline] // ws
+[Pipeline] }
+[Pipeline] // node
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Declarative: Post Actions)
+[Pipeline] cleanWs
+[2022-01-18T13:03:38.636Z] [WS-CLEANUP] Deleting project workspace...
+[2022-01-18T13:03:38.658Z] [WS-CLEANUP] Deferred wipeout is used...
+[2022-01-18T13:03:38.718Z] [WS-CLEANUP] done
+[Pipeline] dir
+[2022-01-18T13:03:38.755Z] Running in /var/jenkins_home/workspace/build-my-app
+[Pipeline] {
+[Pipeline] deleteDir
+[Pipeline] }
+[Pipeline] // dir
+[Pipeline] dir
+[2022-01-18T13:03:38.985Z] Running in /var/jenkins_home/workspace/build-my-app@tmp
+[Pipeline] {
+[Pipeline] deleteDir
+[Pipeline] }
+[Pipeline] // dir
+[Pipeline] dir
+[2022-01-18T13:03:39.163Z] Running in /var/jenkins_home/workspace/build-my-app@script
+[Pipeline] {
+[Pipeline] deleteDir
+[Pipeline] }
+[Pipeline] // dir
+[Pipeline] dir
+[2022-01-18T13:03:39.433Z] Running in /var/jenkins_home/workspace/build-my-app-1
+[Pipeline] {
+[Pipeline] deleteDir
+[Pipeline] }
+[Pipeline] // dir
+[Pipeline] dir
+[2022-01-18T13:03:39.642Z] Running in /var/jenkins_home/workspace/build-my-app-1@tmp
+[Pipeline] {
+[Pipeline] deleteDir
+[Pipeline] }
+[Pipeline] // dir
+[Pipeline] dir
+[2022-01-18T13:03:39.834Z] Running in /var/jenkins_home/workspace/build-my-app-1@script
+[Pipeline] {
+[Pipeline] deleteDir
+[Pipeline] }
+[Pipeline] // dir
+[Pipeline] script
+[Pipeline] {
+[Pipeline] echo
+[2022-01-18T13:03:40.230Z] build-my-app ended successfully, Triger job: run-my-app
+[Pipeline] build
+[2022-01-18T13:03:40.299Z] Scheduling project: run-my-app
+[Pipeline] }
+[Pipeline] // script
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] }
+[Pipeline] // timestamps
+[Pipeline] }
+[Pipeline] // withEnv
+[Pipeline] }
+[Pipeline] // node
+[Pipeline] End of Pipeline
+Finished: SUCCESS

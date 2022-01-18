@@ -1,0 +1,175 @@
+Started by upstream project "build-my-app" build number 1
+originally caused by:
+ Started by user admin
+Checking out git https://github.com/mosheronen/docker-exercise.git into /var/jenkins_home/workspace/run-my-app@script to read jenkins-jobs/run-my-app/Jenkinsfile
+Selected Git installation does not exist. Using Default
+Selected Git installation does not exist. Using Default
+The recommended git tool is: NONE
+using credential mronen-github
+Cloning the remote Git repository
+Cloning repository https://github.com/mosheronen/docker-exercise.git
+ > git init /var/jenkins_home/workspace/run-my-app@script # timeout=10
+Fetching upstream changes from https://github.com/mosheronen/docker-exercise.git
+ > git --version # timeout=10
+ > git --version # 'git version 2.30.2'
+using GIT_ASKPASS to set credentials Username/Password Credentials for mronen git hub
+ > git fetch --tags --force --progress -- https://github.com/mosheronen/docker-exercise.git +refs/heads/*:refs/remotes/docker-exercise/* # timeout=10
+ > git config remote.docker-exercise.url https://github.com/mosheronen/docker-exercise.git # timeout=10
+ > git config --add remote.docker-exercise.fetch +refs/heads/*:refs/remotes/docker-exercise/* # timeout=10
+Avoid second fetch
+ > git rev-parse refs/remotes/docker-exercise/main^{commit} # timeout=10
+Checking out Revision 386b49b79900263c894bee8266db2487c6efaf7f (refs/remotes/docker-exercise/main)
+ > git config core.sparsecheckout # timeout=10
+ > git checkout -f 386b49b79900263c894bee8266db2487c6efaf7f # timeout=10
+Commit message: "initial commit"
+First time build. Skipping changelog.
+[Pipeline] Start of Pipeline
+[Pipeline] node
+Running on Jenkins in /var/jenkins_home/workspace/run-my-app
+[Pipeline] {
+[Pipeline] stage
+[Pipeline] { (Declarative: Checkout SCM)
+[Pipeline] checkout
+Selected Git installation does not exist. Using Default
+Selected Git installation does not exist. Using Default
+The recommended git tool is: NONE
+using credential mronen-github
+Cloning the remote Git repository
+Cloning repository https://github.com/mosheronen/docker-exercise.git
+ > git init /var/jenkins_home/workspace/run-my-app # timeout=10
+Fetching upstream changes from https://github.com/mosheronen/docker-exercise.git
+ > git --version # timeout=10
+ > git --version # 'git version 2.30.2'
+using GIT_ASKPASS to set credentials Username/Password Credentials for mronen git hub
+ > git fetch --tags --force --progress -- https://github.com/mosheronen/docker-exercise.git +refs/heads/*:refs/remotes/docker-exercise/* # timeout=10
+ > git config remote.docker-exercise.url https://github.com/mosheronen/docker-exercise.git # timeout=10
+ > git config --add remote.docker-exercise.fetch +refs/heads/*:refs/remotes/docker-exercise/* # timeout=10
+Avoid second fetch
+ > git rev-parse refs/remotes/docker-exercise/main^{commit} # timeout=10
+Checking out Revision 386b49b79900263c894bee8266db2487c6efaf7f (refs/remotes/docker-exercise/main)
+ > git config core.sparsecheckout # timeout=10
+ > git checkout -f 386b49b79900263c894bee8266db2487c6efaf7f # timeout=10
+Commit message: "initial commit"
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] withEnv
+[Pipeline] {
+[Pipeline] timestamps
+[Pipeline] {
+[Pipeline] stage
+[Pipeline] { (Starting the build-my-app, job will run in a single workspace)
+[Pipeline] node
+[2022-01-18T13:03:51.720Z] Running on Jenkins in /var/jenkins_home/workspace/run-my-app@2
+[Pipeline] {
+[Pipeline] ws
+[2022-01-18T13:03:51.795Z] Running in /var/jenkins_home/workspace/run-my-app-1
+[Pipeline] {
+[Pipeline] checkout
+[2022-01-18T13:03:51.922Z] Selected Git installation does not exist. Using Default
+[2022-01-18T13:03:51.922Z] Selected Git installation does not exist. Using Default
+[2022-01-18T13:03:51.923Z] The recommended git tool is: NONE
+[2022-01-18T13:03:51.924Z] using credential mronen-github
+[2022-01-18T13:03:51.939Z] Cloning the remote Git repository
+[2022-01-18T13:03:51.939Z] Cloning repository https://github.com/mosheronen/docker-exercise.git
+[2022-01-18T13:03:51.939Z]  > git init /var/jenkins_home/workspace/run-my-app-1 # timeout=10
+[2022-01-18T13:03:51.980Z] Fetching upstream changes from https://github.com/mosheronen/docker-exercise.git
+[2022-01-18T13:03:51.981Z]  > git --version # timeout=10
+[2022-01-18T13:03:51.998Z]  > git --version # 'git version 2.30.2'
+[2022-01-18T13:03:51.998Z] using GIT_ASKPASS to set credentials Username/Password Credentials for mronen git hub
+[2022-01-18T13:03:52.000Z]  > git fetch --tags --force --progress -- https://github.com/mosheronen/docker-exercise.git +refs/heads/*:refs/remotes/docker-exercise/* # timeout=10
+[2022-01-18T13:03:53.335Z]  > git config remote.docker-exercise.url https://github.com/mosheronen/docker-exercise.git # timeout=10
+[2022-01-18T13:03:53.342Z]  > git config --add remote.docker-exercise.fetch +refs/heads/*:refs/remotes/docker-exercise/* # timeout=10
+[2022-01-18T13:03:53.349Z] Avoid second fetch
+[2022-01-18T13:03:53.349Z]  > git rev-parse refs/remotes/docker-exercise/main^{commit} # timeout=10
+[2022-01-18T13:03:53.356Z] Checking out Revision 386b49b79900263c894bee8266db2487c6efaf7f (refs/remotes/docker-exercise/main)
+[2022-01-18T13:03:53.356Z]  > git config core.sparsecheckout # timeout=10
+[2022-01-18T13:03:53.364Z]  > git checkout -f 386b49b79900263c894bee8266db2487c6efaf7f # timeout=10
+[2022-01-18T13:03:53.377Z] Commit message: "initial commit"
+[Pipeline] withEnv
+[Pipeline] {
+[Pipeline] stage
+[Pipeline] { (error)
+[Pipeline] script
+[Pipeline] {
+[Pipeline] checkout
+[2022-01-18T13:03:53.650Z] The recommended git tool is: NONE
+[2022-01-18T13:03:53.651Z] using credential mronen-github
+[2022-01-18T13:03:53.658Z]  > git rev-parse --resolve-git-dir /var/jenkins_home/workspace/run-my-app-1/.git # timeout=10
+[2022-01-18T13:03:53.681Z] Fetching changes from the remote Git repository
+[2022-01-18T13:03:53.681Z]  > git config remote.origin.url https://github.com/mosheronen/docker-exercise.git # timeout=10
+[2022-01-18T13:03:53.698Z] Cleaning workspace
+[2022-01-18T13:03:53.698Z]  > git rev-parse --verify HEAD # timeout=10
+[2022-01-18T13:03:53.713Z] Resetting working tree
+[2022-01-18T13:03:53.713Z]  > git reset --hard # timeout=10
+[2022-01-18T13:03:53.733Z]  > git clean -fdx # timeout=10
+[2022-01-18T13:03:53.751Z] Fetching upstream changes from https://github.com/mosheronen/docker-exercise.git
+[2022-01-18T13:03:53.751Z]  > git --version # timeout=10
+[2022-01-18T13:03:53.766Z]  > git --version # 'git version 2.30.2'
+[2022-01-18T13:03:53.766Z] using GIT_ASKPASS to set credentials Username/Password Credentials for mronen git hub
+[2022-01-18T13:03:53.767Z]  > git fetch --tags --force --progress -- https://github.com/mosheronen/docker-exercise.git +refs/heads/*:refs/remotes/origin/* # timeout=5
+[2022-01-18T13:03:54.751Z]  > git rev-parse origin/main^{commit} # timeout=10
+[2022-01-18T13:03:54.761Z] Checking out Revision 386b49b79900263c894bee8266db2487c6efaf7f (origin/main)
+[2022-01-18T13:03:54.761Z]  > git config core.sparsecheckout # timeout=10
+[2022-01-18T13:03:54.769Z]  > git checkout -f 386b49b79900263c894bee8266db2487c6efaf7f # timeout=5
+[2022-01-18T13:03:54.777Z]  > git branch -a -v --no-abbrev # timeout=10
+[2022-01-18T13:03:54.785Z]  > git checkout -b main 386b49b79900263c894bee8266db2487c6efaf7f # timeout=5
+[2022-01-18T13:03:54.798Z] Commit message: "initial commit"
+[2022-01-18T13:03:54.798Z] Cleaning workspace
+[2022-01-18T13:03:54.798Z]  > git rev-parse --verify HEAD # timeout=10
+[2022-01-18T13:03:54.809Z] Resetting working tree
+[2022-01-18T13:03:54.809Z]  > git reset --hard # timeout=10
+[2022-01-18T13:03:54.820Z]  > git clean -fdx # timeout=10
+[Pipeline] }
+[Pipeline] // script
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Create hosts file)
+[Pipeline] script
+[Pipeline] {
+[Pipeline] writeFile
+[Pipeline] }
+[Pipeline] // script
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Run my-app)
+[Pipeline] script
+[Pipeline] {
+[Pipeline] ansiblePlaybook
+[2022-01-18T13:03:55.722Z] [run-my-app-1] $ ansible-playbook my-app/my-app-playbook.yaml -i hosts -b --become-user root
+[2022-01-18T13:03:57.513Z] 
+[2022-01-18T13:03:57.513Z] PLAY [Run my-app docker container] *********************************************
+[2022-01-18T13:03:57.535Z] 
+[2022-01-18T13:03:57.535Z] TASK [Gathering Facts] *********************************************************
+[2022-01-18T13:04:00.093Z] ok: [localhost.localdomain]
+[2022-01-18T13:04:00.106Z] 
+[2022-01-18T13:04:00.106Z] TASK [Create a volume with options] ********************************************
+[2022-01-18T13:04:01.493Z] ok: [localhost.localdomain]
+[2022-01-18T13:04:01.499Z] 
+[2022-01-18T13:04:01.500Z] TASK [Create Container] ********************************************************
+[2022-01-18T13:04:07.438Z] changed: [localhost.localdomain]
+[2022-01-18T13:04:07.513Z] 
+[2022-01-18T13:04:07.513Z] PLAY RECAP *********************************************************************
+[2022-01-18T13:04:07.513Z] localhost.localdomain      : ok=3    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+[2022-01-18T13:04:07.513Z] 
+[Pipeline] }
+[Pipeline] // script
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] }
+[Pipeline] // withEnv
+[Pipeline] }
+[Pipeline] // ws
+[Pipeline] }
+[Pipeline] // node
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] }
+[Pipeline] // timestamps
+[Pipeline] }
+[Pipeline] // withEnv
+[Pipeline] }
+[Pipeline] // node
+[Pipeline] End of Pipeline
+Finished: SUCCESS
