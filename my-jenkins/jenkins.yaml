@@ -85,7 +85,7 @@ jobs:
                     url('https://github.com/mosheronen/docker-exercise.git')
                     name('docker-exercise')
                     refspec('')
-                    credentialsId('github')
+                    credentialsId('mronen-github')
                   }
                 }
                 branches {
@@ -116,7 +116,7 @@ jobs:
                     url('https://github.com/mosheronen/docker-exercise.git')
                     name('docker-exercise')
                     refspec('')
-                    credentialsId('github')
+                    credentialsId('mronen-github')
                   }
                 }
                 branches {
@@ -142,7 +142,7 @@ credentials:
       - credentials:
           - usernamePassword:
               scope: GLOBAL
-              id: "github"
+              id: "mronen-github"
               username: "mosheronen"
               password: "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"
               description: "Username/Password Credentials for mronen git hub"
