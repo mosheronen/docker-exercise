@@ -1,9 +1,10 @@
 FROM jenkins/jenkins:lts
 
-ENV JAVA_OPTS -Djenkins.install.runSetupWizard=false
 ENV JENKINS_ADMIN_ID admin
 ENV JENKINS_ADMIN_PASSWORD password
+ENV JAVA_OPTS -Djenkins.install.runSetupWizard=false
 ENV CASC_JENKINS_CONFIG /usr/share/jenkins/ref/jenkins.yaml
+ENV ANSIBLE_HOST_KEY_CHECKING False
 
 USER root
 
@@ -67,8 +68,7 @@ RUN echo "ansible  ALL=(ALL)  NOPASSWD: ALL" >> /etc/sudoers
 RUN chmod 755 /home/ansible
 RUN usermod -aG sudo ansible
 
-RUN systemctl enable ssh
-RUN /etc/init.d/ssh start
+CMD service ssh start && while true; do sleep 3000; done
 
 RUN ssh-keygen -t rsa -f ~/.ssh/id_rsa -q -N ""
 RUN mkdir -p /home/ansible/.ssh \
