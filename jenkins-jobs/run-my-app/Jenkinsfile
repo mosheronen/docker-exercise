@@ -44,22 +44,8 @@ pipeline
 					{
 						script
 						{
-							command = "hostname -I"
-							dir("${WORKSPACE}")
-							{
-								echo "Command is: ${command}"
-								res = run_command(command)
-								output = res["stdout"]
-								exit_code = res["exitCode"]
-								echo "${command} output is: ${output}"
-								echo "${command} exit code is: ${exit_code}"
-								if (exit_code != 0)
-								{
-									message = "Failed to run command: ${command}. Exit Code: ${exit_code}"
-									throw new Exception(message)
-								}
 								writeFile file: 'hosts', text: """[local]
-${output}"""
+localhost.localdomain"""
 							}
 						}
 					}
