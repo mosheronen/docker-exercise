@@ -68,8 +68,6 @@ RUN echo "ansible  ALL=(ALL)  NOPASSWD: ALL" >> /etc/sudoers
 RUN chmod 755 /home/ansible
 RUN usermod -aG sudo ansible
 
-CMD service ssh start && while true; do sleep 3000; done
-
 RUN ssh-keygen -t rsa -f ~/.ssh/id_rsa -q -N ""
 RUN mkdir -p /home/ansible/.ssh \
     && cp ~/.ssh/id_rsa.pub /home/ansible/.ssh/authorized_keys \
@@ -84,4 +82,4 @@ USER ansible
 # Install Ansible inventory file
 RUN echo "[local]\nlocalhost.localdomain ansible_connection=local" > /etc/ansible/hosts
 
-USER jenkins
+ENTRYPOINT service ssh start && /bin/bash
