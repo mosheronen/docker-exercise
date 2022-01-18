@@ -1,6 +1,6 @@
 ---
 - name: Run my-app docker container
-  hosts: 172.21.0.2
+  hosts: localhost.localdomain
   remote_user: ansible
   tasks:
   - name: Create a volume with options

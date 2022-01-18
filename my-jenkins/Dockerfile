@@ -82,6 +82,6 @@ RUN chown -R ansible:ansible /etc/ansible
 USER ansible
 
 # Install Ansible inventory file
-RUN echo "[local]\nlocalhost ansible_connection=local" > /etc/ansible/hosts
+RUN echo "[local]\nlocalhost.localdomain ansible_connection=local" > /etc/ansible/hosts
 
 USER jenkins
