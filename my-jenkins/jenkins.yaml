@@ -1,10 +1,4 @@
 jenkins:
-  nodes:
-    - permanent:
-        labelString: "master"
-        mode: NORMAL
-        name: "Built-In Node"
-        numExecutors: 4
   authorizationStrategy:
     globalMatrix:
       permissions:
