@@ -98,8 +98,14 @@ pipeline
 		}
 		success
 		{
-			echo "${JOB_NAME} ended successfully, Triger job: run-my-app"
-			res = build wait: false, job: 'run-my-app'
+			steps
+			{
+				script
+				{
+					echo "${JOB_NAME} ended successfully, Triger job: run-my-app"
+					res = build wait: false, job: 'run-my-app'
+				}
+			}
 		}
 	}
 }
