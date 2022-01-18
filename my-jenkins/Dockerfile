@@ -1,13 +1,17 @@
 FROM jenkins/jenkins:lts
 
+# Setup Jenkins Admin User and Password
 ENV JENKINS_ADMIN_ID admin
 ENV JENKINS_ADMIN_PASSWORD password
+# Disable Jenkins Setup Wizard
 ENV JAVA_OPTS -Djenkins.install.runSetupWizard=false
 ENV CASC_JENKINS_CONFIG /usr/share/jenkins/ref/jenkins.yaml
 ENV ANSIBLE_HOST_KEY_CHECKING False
 
 USER root
 
+COPY entrypoint.sh /entrypoint.sh
+RUN chmod +x /entrypoint.sh
 COPY plugins.txt /usr/share/jenkins/ref
 COPY jenkins.yaml /usr/share/jenkins/ref
 RUN /usr/local/bin/install-plugins.sh < /usr/share/jenkins/ref/plugins.txt
@@ -77,9 +81,11 @@ RUN mkdir -p /home/ansible/.ssh \
 RUN mkdir -p /etc/ansible
 RUN chown -R ansible:ansible /etc/ansible
 
+ENTRYPOINT ["/entrypoint.sh"]
+
 USER ansible
 
 # Install Ansible inventory file
 RUN echo "[local]\nlocalhost.localdomain ansible_connection=local" > /etc/ansible/hosts
 
-ENTRYPOINT service ssh start && /bin/bash
+USER jenkins
