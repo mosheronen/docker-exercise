@@ -11,7 +11,7 @@ COPY plugins.txt /usr/share/jenkins/ref
 COPY jenkins.yaml /usr/share/jenkins/ref
 RUN /usr/local/bin/install-plugins.sh < /usr/share/jenkins/ref/plugins.txt
 
-ENV pip_packages "ansible cryptography"
+ENV pip_packages "ansible cryptography requests docker"
 
 RUN apt-get update && \
     apt-get -y install sudo \
@@ -68,7 +68,7 @@ RUN chmod 755 /home/ansible
 RUN usermod -aG sudo ansible
 
 RUN systemctl enable ssh
-RUN service ssh start
+RUN service start ssh
 
 RUN ssh-keygen -t rsa -f ~/.ssh/id_rsa -q -N ""
 RUN mkdir -p /home/ansible/.ssh \
