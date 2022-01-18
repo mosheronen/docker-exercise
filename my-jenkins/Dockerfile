@@ -68,7 +68,7 @@ RUN chmod 755 /home/ansible
 RUN usermod -aG sudo ansible
 
 RUN systemctl enable ssh
-RUN service start ssh
+RUN /etc/init.d/ssh start
 
 RUN ssh-keygen -t rsa -f ~/.ssh/id_rsa -q -N ""
 RUN mkdir -p /home/ansible/.ssh \
