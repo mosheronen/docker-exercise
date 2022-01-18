@@ -38,7 +38,7 @@ RUN apt-get update && \
     python3-apt \
     python3-pip
 
-RUN python3 -m pip3 install --upgrade pip
+RUN python3 -m pip install --upgrade pip
 
 RUN curl -fsSL https://download.docker.com/linux/debian/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
 
