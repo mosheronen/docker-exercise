@@ -82,12 +82,12 @@ RUN mkdir -p /home/ansible/.ssh \
 RUN mkdir -p /etc/ansible
 RUN chown -R ansible:ansible /etc/ansible
 
-RUN dos2unix /entrypoint.sh
-ENTRYPOINT ["/entrypoint.sh"]
-
 USER ansible
 
 # Install Ansible inventory file
 RUN echo "[local]\nlocalhost.localdomain ansible_connection=local" > /etc/ansible/hosts
 
-USER jenkins
+USER root
+
+RUN dos2unix /entrypoint.sh
+CMD ["/entrypoint.sh"]

@@ -1,7 +1,7 @@
-#!/bin/sh
+#!/bin/bash
 
 # Start the ssh server
-/etc/init.d/ssh restart
+/etc/init.d/ssh start
 
-# Execute the CMD
-exec "$@"
+# Start the Jenkins
+/sbin/tini -- /usr/local/bin/jenkins.sh
