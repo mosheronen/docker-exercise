@@ -46,7 +46,6 @@ pipeline
 						{
 								writeFile file: 'hosts', text: """[local]
 localhost.localdomain"""
-							}
 						}
 					}
 				}
