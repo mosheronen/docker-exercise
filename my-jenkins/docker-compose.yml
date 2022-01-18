@@ -16,3 +16,4 @@ services:
     restart: unless-stopped
     environment:
       - "JAVA_OPTS=-Xmx3g -Xms2G -Djenkins.install.runSetupWizard=false"
+      - "CASC_JENKINS_CONFIG=/usr/share/jenkins/ref/jenkins.yaml"

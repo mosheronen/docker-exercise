@@ -156,7 +156,7 @@ credentials:
               scope: GLOBAL
               id: "github"
               username: "mosheronen"
-              password: "\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"
+              password: "\\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"
               description: "Username/Password Credentials for mronen git hub"
 
 

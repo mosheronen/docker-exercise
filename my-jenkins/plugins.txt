@@ -1,3 +1,4 @@
+configuration-as-code:1.55.1
 sshd:3.1.0
 cloudbees-folder:6.17
 antisamy-markup-formatter:2.7
