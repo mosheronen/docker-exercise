@@ -58,7 +58,6 @@ unclassified:
     maxAttachmentSize: -1
     maxAttachmentSizeMb: 0
     precedenceBulk: false
-    useSsl: false
     watchingEnabled: false
   gitSCM:
     createAccountBasedOnEmail: false
@@ -69,7 +68,6 @@ unclassified:
     url: http://localhost.localdomain:8080/
   mailer:
     charset: "UTF-8"
-    useSsl: false
   pollSCM:
     pollingThreadCount: 10
   timestamperConfig:
@@ -152,7 +150,7 @@ credentials:
               scope: GLOBAL
               id: "github"
               username: "mosheronen"
-              password: "\\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"
+              password: "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"
               description: "Username/Password Credentials for mronen git hub"
 
 

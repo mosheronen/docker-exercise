@@ -10,7 +10,6 @@ pipeline
 			{
 				node
 				{
-					label 'master'
 					customWorkspace "/var/jenkins_home/workspace/${JOB_NAME}-${BUILD_NUMBER}"
 				}
 			}
